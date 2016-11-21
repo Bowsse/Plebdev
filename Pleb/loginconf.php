@@ -139,6 +139,11 @@ public function runApplication()
         <?php
 
 
+<<<<<<< HEAD
+=======
+        echo 'Moi oot ' . $_SESSION['user_name'] . ', tällähetkellä ainoot sessionin varit on  $_SESSION["user_name"] = ' . $_SESSION['user_name'] . ', $_SESSION["user_email"] = ' . $_SESSION['user_email'] . ' ja $_SESSION["user_is_logged_in"] = ' . $_SESSION['user_is_logged_in'] . '.<br/><br/>';
+        echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
+>>>>>>> 9671aac65c164e2a045379ac92373e26b483c375
     }
 
      private function showPageLoginForm()
