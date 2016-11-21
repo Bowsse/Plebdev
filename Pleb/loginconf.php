@@ -132,7 +132,7 @@ public function runApplication()
             echo $this->feedback . "<br/><br/>";
         }
 
-        echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
+        echo 'Moi oot ' . $_SESSION['user_name'] . ', tällähetkellä ainoot sessionin varit on  $_SESSION["user_name"] = ' . $_SESSION['user_name'] . ', $_SESSION["user_email"] = ' . $_SESSION['user_email'] . ' ja $_SESSION["user_is_logged_in"] = ' . $_SESSION['user_is_logged_in'] . '.<br/><br/>';
         echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
     }
 
