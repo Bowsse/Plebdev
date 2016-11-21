@@ -46,7 +46,6 @@ visibility: hidden;
 }
 /* ------------- chatti paskaa --------------*/
 #mastercontainer {
-    background-color:aqua;
     border-radius: 3px;
     padding: 15px 15px 15px;
     margin: 10px auto;
@@ -54,7 +53,6 @@ visibility: hidden;
 }
 
 .chat-container {
-  border: 1px solid lightgreen;
   width: 90%;
   max-height: 500px;
   margin: auto;
@@ -449,7 +447,12 @@ img.thumbnail {
     width: 112px;
     height: 63px;
 }
+#transform {
 
+     visibility: hidden;
+
+
+}
 /*    nämä, jos kapea ikkuna*/
 @media screen and (max-width: 610px ) {
     aside {

@@ -127,13 +127,18 @@ public function runApplication()
     }
 
    private function showPageLoggedIn()
-    {
+    { 
         if ($this->feedback) {
             echo $this->feedback . "<br/><br/>";
         }
+        
+        echo 'Logged in as ' . $_SESSION['user_name'] . '';      
+        ?>
+            <a href="#" onclick="transformLogin()" id="transform"></a>
 
-        echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
-        echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
+        <?php
+
+
     }
 
      private function showPageLoginForm()
