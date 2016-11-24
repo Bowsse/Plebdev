@@ -17,13 +17,18 @@ function closeChat() {
             document.getElementById("chatButton").innerHTML = "Open";
             document.getElementById("chatButton").onclick = openChat;
         }
-                
-function openChat() {
-    document.getElementById("chat").style.width = "auto";
-    document.getElementById("chat").style.overflow = "auto";
-    document.getElementById("chatButton").onclick = closeChat;
-    document.getElementById("chatButton").innerHTML = "Close";
-}
+           
+           // Päivittää soittolistan 5000ms välein
+$(document).ready(function(){
+      refreshTable();
+    });
+
+function refreshTable(){
+    $('#playlist').load('includes/getPlaylist.php', function(){
+       setTimeout(refreshTable, 5000);
+    });
+}     
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;

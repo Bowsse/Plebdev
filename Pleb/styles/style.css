@@ -104,6 +104,11 @@ visibility: hidden;
 }
 /* ---chatti loppuu ---*/
 
+a.videoLink {
+	display: block;
+	font-size: 16;
+	padding: 0;
+}
 nav {
     background-color: grey;
     height: auto;
@@ -145,6 +150,7 @@ section.queue {
     border-left: 0;
     border-bottom: 14px solid #FF9DC6;
     border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
 }
 article {
     background-color: white;
@@ -285,6 +291,20 @@ input[type=range]:focus::-ms-fill-upper {
 input.loginInput {
     margin: 5px;
 }
+aside {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: static;
+    max-width: 40%;
+    max-height: 700px;
+    margin-bottom: 10px;
+    border-left: 2px solid #FF9DC6;
+    border-right: 14px solid #FF9DC6;
+    box-shadow: 0px 3px 10px -2px #808080;
+    border-radius: 0px 10px 10px 0px;
+    overflow: auto;
+    float: left;
+}
+
 #playlist {
     background-color: rgba(255, 255, 255, 0.8);
     position: static;
@@ -354,7 +374,8 @@ table {
     table-layout: fixed;
 }
 table.listTable {
-    background-color: rgba(255, 255, 255, 0.8);
+	max-width: 100%;
+	overflow: hidden;
 }
 tr:hover {
     background-color: lightgrey;
@@ -444,8 +465,16 @@ p.date {
     margin: 0;
 }
 img.thumbnail {
-    width: 112px;
-    height: 63px;
+	width: 112px;
+	height: 63px;
+	cursor: pointer;
+}
+img.thumbnail:hover {
+	opacity: 0.5;
+}
+img.thumbnailSongList {
+	width: 112px;
+	height: 63px;
 }
 #transform {
 

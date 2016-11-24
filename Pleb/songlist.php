@@ -2,85 +2,30 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="styles/style.css" type="text/css" rel=stylesheet>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- jquery -->
+	<script src="scripts/adminScripts.js"></script> <!-- Admin scriptit -->
+	<script>
+	//päivittää videolistat 10000ms välein
+	$(document).ready(function(){
+      refreshTable();
+    });
+
+	function refreshTable(){
+	$('#queue').load('includes/getQueue.php', function(){
+		setTimeout(refreshTable, 10000);
+	$('#played').load('includes/getPlayed.php');
+	});
+}
+	</script>
 </head>
 
 <body>
 <?php include_once("includes/nav.php"); ?>
 <main>
-        <section class="queue">
-            <h1 class="listHeader">Jono</h1>
-            <table class="listTable">
-                <tr><td>aside</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>asdasduihasuidhasiudhasidhauisdhuasidhasidhaisdhaisdhiashdiuasd</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>LAst</td><td>123</td></tr>
-            </table>
+        <section class="queue" id="queue">
         </section>
-        <section class="queue">
-            <h1 class="listHeader">Soitetut</h1>
-            <table class="listTable">
-                <tr><td>first</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>asdasduihasuidhasiudhasidhauisdhuasidhasidhaisdhaisdhiashdiuasd</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>asdasd</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>Draft - Forfeits</td><td>123</td></tr>
-                <tr><td>last</td><td>123</td></tr>
-            </table>
+        <section class="queue" id="played">
         </section>
     </main>
 <?php include_once("includes/footer.php"); ?>
 </body>
-
-<?php
-function printTableQueue(){
-	//tietokannasta tiedot
-}
-function printTablePlayed(){
-	//tietokannasta tiedot
-}
-?>
