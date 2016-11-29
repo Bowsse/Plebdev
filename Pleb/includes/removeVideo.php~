@@ -8,7 +8,7 @@ Vaihtaa videon tilaksi 'poistettu'.			!muokkaa error viestit!
 
 //					!Lisää if(admin) tähän!
 
-if($_SESSION["user_name"] == "admin") { // käyttäjä databeissis ei rooli kenttää niin tutkitaan nimen perusteella
+if($_SESSION["user_name"] == "admin") {
 
 	if(isset($_POST['Id'])){
 		try{

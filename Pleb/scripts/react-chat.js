@@ -77,7 +77,7 @@ var ChatFooter = React.createClass({
   // Message send event handler
   handleUserMessage: function(event) {
     // When shift and enter key is pressed
-    if (event.shiftKey && event.keyCode === 13) {
+    if (event.keyCode === 13) {
        var msg = this.refs.textArea.value;
       if (msg !== '') {
         // call the sendmessages of ChatContainer throught the props
@@ -92,7 +92,7 @@ var ChatFooter = React.createClass({
   render: function() {
     return (
       <div className="msg-input">
-        <textarea rows="3" rowsid="chatMsg" ref="textArea" onKeyDown={this.handleUserMessage} placeholder="Type your message. Press shift + Enter to send" />
+        <textarea rows="3" rowsid="chatMsg" ref="textArea" onKeyDown={this.handleUserMessage} placeholder="Type your message. Press Enter to send" />
       </div>
     );
   }
@@ -110,7 +110,7 @@ var ChatContainer = React.createClass({
   getMessages: function() {
   
       $.ajax({
-         url: 'ajax/get_messages.php',
+         url: 'includes/get_messages.php',
          dataType: 'json',
           cache: false,
           success: function(data) {
@@ -126,7 +126,7 @@ var ChatContainer = React.createClass({
   // add a new message AND update the messages list
   sendMessage: function(message) {
       $.ajax({
-         url: 'ajax/add_msg.php',
+         url: 'includes/add_msg.php',
           method: 'post',
          dataType: 'json',
           data: {msg: message},

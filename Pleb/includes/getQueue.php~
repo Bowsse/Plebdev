@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /*
 Tulostaa Jono-listan			!muokkaa error viestit!
 											!vaihda oikea tietokanta!

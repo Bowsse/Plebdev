@@ -72,6 +72,7 @@ public function runApplication()
         session_destroy();
         $this->user_is_logged_in = false;
         $this->feedback = "You were just logged out.";
+        echo "<script type='text/javascript'>alert('Kirjauduit ulos.');</script>";
     }
     private function checkLoginFormDataNotEmpty()
     {
@@ -111,6 +112,7 @@ public function runApplication()
                 $_SESSION['user_email'] = $result_row->user_email;
                 $_SESSION['user_is_logged_in'] = true;
                 $this->user_is_logged_in = true;
+                echo "<script type='text/javascript'>alert('Kirjauduit sisään.');</script>";
                 return true;
             } else {
                 $this->feedback = "Wrong password.";
@@ -129,21 +131,16 @@ public function runApplication()
    private function showPageLoggedIn()
     { 
         if ($this->feedback) {
-            echo $this->feedback . "<br/><br/>";
+            //echo $this->feedback . "<br/><br/>";
         }
-        
-        echo 'Logged in as ' . $_SESSION['user_name'] . '';      
-        ?>
-            <a href="#" onclick="transformLogin()" id="transform"></a>
-
-        <?php
-
+        //echo 'Logged in as ' . $_SESSION['user_name'] . '';      
+        ?><a href="#" onclick="transformLogin()" id="transform"></a><?php
     }
 
      private function showPageLoginForm()
     {
         if ($this->feedback) {
-            echo $this->feedback . "<br/><br/>";
+            //echo $this->feedback . "<br/><br/>";
         }
 
         echo '<div id="popupbox">';

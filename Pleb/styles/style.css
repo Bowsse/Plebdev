@@ -137,6 +137,11 @@ section {
 }
 section.postList {
     width: 100%;
+    margin-bottom: 50px;
+}
+section.postList#newBlogPost{
+	margin-bottom: 0px;
+	margin-top: 10px;
 }
 section.queue {
     margin-left: auto;
@@ -167,6 +172,7 @@ article.login {
 article.post {
     width: auto;
     height: auto;
+    margin: 20px 0px 20px 0px;
 }
 article.dokumentti {
     width: auto;
@@ -458,6 +464,7 @@ h1.blogHeader {
 p.footer {
     font-size: 14;
     font-style: italic;
+    display: inline;
 }
 p.date {
     font-size: 14;
@@ -477,10 +484,7 @@ img.thumbnailSongList {
 	height: 63px;
 }
 #transform {
-
-     visibility: hidden;
-
-
+    visibility: hidden;
 }
 /*    nämä, jos kapea ikkuna*/
 @media screen and (max-width: 610px ) {

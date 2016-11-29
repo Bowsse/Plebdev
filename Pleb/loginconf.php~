@@ -1,18 +1,4 @@
-<!--
-Turha tiedosto, testailin näitä juttuja tässä muttei enää käytössä
-
-
--->
-
-
-<head>
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="styles/style.css" type="text/css" rel=stylesheet>
-</head>
-
-<body>
-<?php include_once("includes/nav.html"); 
+<?php
 class Login
 {
 private $db_type = "sqlite"; 
@@ -56,6 +42,7 @@ public function runApplication()
     {
         if (isset($_GET["action"]) && $_GET["action"] == "logout") {
             $this->doLogout();
+            header("Refresh");
         } elseif (!empty($_SESSION['user_name']) && ($_SESSION['user_is_logged_in'])) {
             $this->doLoginWithSessionData();
         } elseif (isset($_POST["login"])) {
@@ -86,6 +73,7 @@ public function runApplication()
         session_destroy();
         $this->user_is_logged_in = false;
         $this->feedback = "You were just logged out.";
+        echo "<script type='text/javascript'>alert('Kirjauduit ulos.');</script>";
     }
     private function checkLoginFormDataNotEmpty()
     {
@@ -125,6 +113,7 @@ public function runApplication()
                 $_SESSION['user_email'] = $result_row->user_email;
                 $_SESSION['user_is_logged_in'] = true;
                 $this->user_is_logged_in = true;
+                echo "<script type='text/javascript'>alert('Kirjauduit sisään.');</script>";
                 return true;
             } else {
                 $this->feedback = "Wrong password.";
@@ -141,21 +130,21 @@ public function runApplication()
     }
 
    private function showPageLoggedIn()
-    {
+    { 
         if ($this->feedback) {
-            echo $this->feedback . "<br/><br/>";
+            //echo $this->feedback . "<br/><br/>";
         }
-
-        echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
-        echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
+        //echo 'Logged in as ' . $_SESSION['user_name'] . '';      
+        ?><a href="#" onclick="transformLogin()" id="transform"></a><?php
     }
 
      private function showPageLoginForm()
     {
         if ($this->feedback) {
-            echo $this->feedback . "<br/><br/>";
+            //echo $this->feedback . "<br/><br/>";
         }
 
+        echo '<div id="popupbox">';
         echo '<article class="login">';
         echo '<h2>Login</h2>';
 
@@ -166,34 +155,12 @@ public function runApplication()
         echo '<input id="login_input_password" type="password" name="user_password" required /> ';
         echo '<input type="submit"  name="login" value="Log in" />';
         echo '</form>';
+        echo '<a href="javascript:closeLogin();" id="closeLogin">Close</a>';
         echo '</article>';
+        echo '</div>';
 
 
     }
 
 }
 $application = new Login();
-?>
-
-<!--<main class="loginMain">
-	<article class="login">
-	<h2>Login</h2>
-
-        <form method="post" action=" . $_SERVER['SCRIPT_NAME'] . " name="loginform">
-        <label for="login_input_username">Username (or email)</label>
-        <input id="login_input_username" type="text" name="user_name" required />
-        <label for="login_input_password">Password</label>
-        <input id="login_input_password" type="password" name="user_password" required />
-        <input type="submit"  name="login" value="Log in" />
-        </form>
-			<h1>Login</h1>
-		<form method="get">
-			<input class="loginInput" type="text" name="name" placeholder="username"><br>
-			<input class="loginInput" type="password" name="password" placeholder="password"><br>
-			<button type="submit" name="login">Log in</button>
-			<button type="submit" name="signup">Sign up</button>
-		</form>
-	</article>-->
-</main>
-<?php include_once("includes/footer.php"); ?>
-</body>

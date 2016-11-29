@@ -3,7 +3,7 @@
 // SEMITOIMIVAA pitäisi olla, jos tietokantasi vastaa ohjeistettua
 
 require_once '../reactconf.php';
-require_once __DBCONFIG_PATH . '/RpmChatDb.php';
+require_once __DBCONFIG_PATH . '/Chat.php';
 
 
 if (isset($_POST['msg'])) {
@@ -13,7 +13,7 @@ if (isset($_POST['msg'])) {
   $userId = 2;
   $msg = strip_tags(($_POST['msg']));
  
-  $chat = new RpmChatDb();
+  $chat = new Chat();
   $result = $chat->addMessage($userId, $msg);
 
   // Send back the updated messages

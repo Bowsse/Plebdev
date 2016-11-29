@@ -3,7 +3,7 @@
 // SEMITOIMIVAA pitäisi olla, jos tietokantasi vastaa ohjeistettua
 
 require_once '../reactconf.php';
-require_once __DBCONFIG_PATH . '/RpmChatDb.php';
+require_once __DBCONFIG_PATH . '/Chat.php';
 
 $chat = new RpmChatDb();
 $messages = $chat->getMessages();
