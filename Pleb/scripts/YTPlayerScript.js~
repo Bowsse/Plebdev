@@ -18,7 +18,7 @@ function onYouTubeIframeAPIReady() {
     videoId: 'M7lc1UVf-VE',
     events: {
         'onReady': onPlayerReady,
-        //'onStateChange': onPlayerStateChange
+        'onStateChange': onPlayerStateChange
         },
     playerVars: {
         autoplay: 0,    //autoplay
@@ -38,26 +38,17 @@ function setVolume(){
 }
 
 // kun soitin on valmis...
-var ready = false;
 function onPlayerReady(event) {
-
-	player.addEventListener('onStateChange', function(e) {
-       if(e.data == 0){
-			adminChangeVideo('skip');
-		}
-    });
-	//event.target.playVideo();
-	ready = true;
-	refreshVideo();
+//            event.target.playVideo();
     setVolume();
 }
 
-
+//var done = false;
+//Kun soittimen tila muuttuu...
 function onPlayerStateChange(event) {
 //            if (event.data == YT.PlayerState.PLAYING && !done) {
 //                
 //            }
-	console.log(player.getPlayerState());
 }
 
 // Hiljentää soittimen
@@ -79,10 +70,8 @@ function playVideo() {
 
 // Vaihtaa soittimen videon
 function changeVideo(id) {
-	console.log(ready);
-	if(ready){
-		player.loadVideoById(id);		
-	}
+	console.log(id);
+    player.loadVideoById(id);
 }
 
 // Vaihtaa soittimen äänentason

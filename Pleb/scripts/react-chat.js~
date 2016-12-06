@@ -19,13 +19,24 @@ var ChatHeader = React.createClass({
   },
   render: function() {
     // To display the username   
+    
+       // var http = new XMLHttpRequest();
+	//var url = "includes/getUser.php";
+        //var user = "";
+
+   // http.open( "GET", url, false );
+   // http.send( null );
+       
+    //user = http.responseText;
+    //document.write(user);
     return (
-      
+
       <div className="msg-header">
-        Role: <span>Admin</span>
       </div>
       
     );
+	//$('.msg-header').html();
+ 
   }
 });
 
@@ -110,7 +121,7 @@ var ChatContainer = React.createClass({
   getMessages: function() {
   
       $.ajax({
-         url: 'ajax/get_messages.php',
+         url: 'includes/get_messages.php',
          dataType: 'json',
           cache: false,
           success: function(data) {
@@ -126,7 +137,7 @@ var ChatContainer = React.createClass({
   // add a new message AND update the messages list
   sendMessage: function(message) {
       $.ajax({
-         url: 'ajax/add_msg.php',
+         url: 'includes/add_msg.php',
           method: 'post',
          dataType: 'json',
           data: {msg: message},

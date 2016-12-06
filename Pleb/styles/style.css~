@@ -69,7 +69,7 @@ visibility: hidden;
 }
 
 .msg-row-container {
-  border-bottom: 1px dashed lightgreen;
+  border-bottom: 1px solid pink;
 }
 
 .msg-row {
@@ -484,7 +484,7 @@ img.thumbnailSongList {
 	height: 63px;
 }
 #transform {
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 /*    nämä, jos kapea ikkuna*/
 @media screen and (max-width: 610px ) {
